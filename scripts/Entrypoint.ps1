@@ -1,1 +1,1 @@
-supervisord -c /etc/supervisord.conf
+supervisord -nc /etc/supervisord.conf

@@ -11,10 +11,10 @@ RUN dpkg -i packages-microsoft-prod.deb
 # Update and install misc packages
 RUN apt-get update
 RUN apt-get install --no-install-recommends --no-install-suggests -y \
-    powershell lib32gcc-s1 curl ca-certificates locales supervisor
+    powershell lib32gcc-s1 curl ca-certificates locales supervisor zip
 
 # Install SteamCMD
-WORKDIR /app/steam
+WORKDIR /steam
 RUN wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
   && tar xvf steamcmd_linux.tar.gz
 
@@ -27,12 +27,12 @@ RUN mkdir -p ./logs
 # Copy configs
 COPY ./configs/supervisord.conf /etc
 
-
 # Copy scripts
 WORKDIR /scripts
 COPY ./scripts/Entrypoint.ps1 .
 COPY ./scripts/Start-Server.ps1 .
 COPY ./scripts/Start-BackupService.ps1 .
+COPY ./scripts/Start-UpdateService.ps1 .
 
 # HEALTHCHECK CMD sv status ddns | grep run || exit 1
 # RUN chmod 755 /etc/service/ddns/run

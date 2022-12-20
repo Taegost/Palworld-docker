@@ -1,17 +1,23 @@
-
 if (-not ($BACKUPS_ENABLED)) { $BACKUPS_ENABLED = $true }
 if (-not ($BACKUPS_MAX_AGE)) { $BACKUPS_MAX_AGE = 3 }
 if (-not ($BACKUPS_MAX_COUNT)) { $BACKUPS_MAX_COUNT = 0 }
+# if (-not ($BACKUPS_INTERVAL)) { $BACKUPS_INTERVAL = 360 }
+if (-not ($BACKUPS_INTERVAL)) { $BACKUPS_INTERVAL = 1 }
 
-Write-Output "Enabled? $BACKUPS_ENABLED"
-Write-Output "Age? $BACKUPS_MAX_AGE"
-Write-Output "Max Count? $BACKUPS_MAX_COUNT"
+$backupLocation = '/app/backups'
+$saveLocation = '/app/server'
 
-$count = 0
-While ($true)
+function RunBackups()
 {
-  touch /app/backups/$count
-  Start-Sleep 3
-  Write-Output "Backup!"
-  $count += 1
+  return ($BACKUPS_ENABLED)
 }
+
+While (RunBackups)
+{
+  if (Test-Path (Join-Path $saveLocation "*")
+  {
+    $backupFile = Join-Path $backupLocation "backup-$((Get-Date).tostring("yyyyMMdd_HHmmss")).zip"
+    zip -r $backupFile $saveLocation
+  } # if (Test-Path $saveLocation)
+  Start-Sleep ($BACKUPS_INTERVAL * 60)
+} # While (RunBackups)
