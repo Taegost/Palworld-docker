@@ -1,14 +1,20 @@
 # baseimage
 A base image for game servers
 
+# System Requirements
+| Name | Description |
+| - | - |
+| Processor | TBD |
+| Memory | TBD |
+| Storage | TBD |
+| Internet Connection | Broadband internet connection. Hosting from home will require the ability to configure port forwarding |
+
 # Important folders
 | Name | Description |
 | - | - |
 | /app/server | Game server files |
 | /app/backups | Backup files |
 | /app/logs | Logs for the various processes |
-
-
 
 # Environment Variables
 ## General
