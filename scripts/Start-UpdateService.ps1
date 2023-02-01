@@ -1,14 +1,13 @@
 $backupLocation = '/app/backups'
 $tempLocation = '/tmp/backups'
 $serverLocation = '/app/server'
-$steamId = '00000'
 
 if (-not ($UPDATES_ENABLED)) { $UPDATES_ENABLED = $true }
 if (-not ($UPDATES_INTERVAL)) { $UPDATES_INTERVAL = 15 }
 
 function RunSteamCMD()
 {
-  /steam/steamcmd.sh +force_install_dir "$serverLocation" +login anonymous +app_update $steamId $UPDATES_STEAMCMD_ARGS +quit
+  /steam/steamcmd.sh +force_install_dir "$serverLocation" +login anonymous +app_update $STEAM_APPID $UPDATES_STEAMCMD_ARGS +quit
 }
 
 function RunUpdate()

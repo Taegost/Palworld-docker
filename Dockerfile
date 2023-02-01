@@ -34,7 +34,9 @@ COPY ./scripts/Start-Server.ps1 .
 COPY ./scripts/Start-BackupService.ps1 .
 COPY ./scripts/Start-UpdateService.ps1 .
 
+# Set up game-specific variable defaults
+ENV STEAM_APPID="00000"
+
 # HEALTHCHECK CMD sv status ddns | grep run || exit 1
-# RUN chmod 755 /etc/service/ddns/run
 
 CMD pwsh /scripts/Entrypoint.ps1
