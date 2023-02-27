@@ -29,13 +29,13 @@ COPY ./configs/supervisord.conf /etc
 
 # Copy scripts
 WORKDIR /scripts
-COPY ./scripts/Entrypoint.ps1 .
-COPY ./scripts/Start-Server.ps1 .
-COPY ./scripts/Start-BackupService.ps1 .
-COPY ./scripts/Start-UpdateService.ps1 .
+COPY ./scripts/ .
+
+WORKDIR /tmp
 
 # Set up server defaults
 ENV STEAM_APPID="00000" \
+    TEMP_FOLDER="/tmp" \
     TZ="Etc/UTC" \
     FILE_UMASK="022" \
     PORT_GAME="7777" \
