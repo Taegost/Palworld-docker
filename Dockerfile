@@ -34,8 +34,17 @@ COPY ./scripts/Start-Server.ps1 .
 COPY ./scripts/Start-BackupService.ps1 .
 COPY ./scripts/Start-UpdateService.ps1 .
 
-# Set up game-specific variable defaults
-ENV STEAM_APPID="00000"
+# Set up server defaults
+ENV STEAM_APPID="00000" \
+    TZ="Etc/UTC" \
+    FILE_UMASK="022" \
+    PORT_GAME="7777" \
+    BACKUPS_ENABLED="True" \
+    BACKUPS_MAX_AGE=3 \
+    BACKUPS_MAX_COUNT=0 \
+    BACKUPS_INTERVAL=360 \
+    UPDATES_ENABLED="True" \
+    UPDATES_INTERVAL=15
 
 # HEALTHCHECK CMD sv status ddns | grep run || exit 1
 
