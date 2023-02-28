@@ -3,7 +3,7 @@ FROM phusion/baseimage:jammy-1.0.1
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get upgrade -y
 
 # Download and register the Microsoft repository GPG keys
 RUN apt-get install -y wget apt-transport-https software-properties-common
