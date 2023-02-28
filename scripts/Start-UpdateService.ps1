@@ -11,7 +11,6 @@ function RunSteamCMD()
 {
   AddUpdateLock
   $args="+force_install_dir '$serverLocation' +login anonymous +app_update $steamAppId $steamcmdArgs +quit"
-  # $args="+@sSteamCmdForcePlatformType windows +force_install_dir '$serverLocation' +login anonymous +app_update $steamAppId $steamcmdArgs +quit"
   Write-Output "Arguments used for SteamCMD: $args"
   /steam/steamcmd.sh $args
   Write-Output "Done updating"

@@ -2,8 +2,10 @@ FROM phusion/baseimage:jammy-1.0.1
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Download and register the Microsoft repository GPG keys
 RUN apt-get update
+RUN apt-get upgrade
+
+# Download and register the Microsoft repository GPG keys
 RUN apt-get install -y wget apt-transport-https software-properties-common
 RUN wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb"
 RUN dpkg -i packages-microsoft-prod.deb
