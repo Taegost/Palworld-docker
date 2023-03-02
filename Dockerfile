@@ -22,6 +22,8 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
 # RUN wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
 # RUN apt-get update
 # RUN apt-get install --install-recommends -y winehq-stable winetricks screen xvfb
+# ENV WINEPREFIX="/tmp/.wine" \
+#     WINEARCH=win64
 
 # Install SteamCMD
 WORKDIR /steam
