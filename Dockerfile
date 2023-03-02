@@ -15,6 +15,9 @@ RUN apt-get update
 RUN apt-get install --no-install-recommends --no-install-suggests -y \
     powershell lib32gcc-s1 curl ca-certificates locales supervisor zip
 
+# Install wine, if necessary
+# RUN apt-get install -y wine64 wine32 winetricks screen xvfb
+
 # Install SteamCMD
 WORKDIR /steam
 RUN wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
@@ -37,6 +40,9 @@ RUN mkdir -p ./logs
 
 # Copy configs
 COPY ./configs/supervisord.conf /etc
+# If the workdir changes, also update it in Config-Tools
+WORKDIR /app/default-configs
+COPY ./configs/game-configs/ .
 
 # Copy scripts
 WORKDIR /scripts

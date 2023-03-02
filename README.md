@@ -1,6 +1,28 @@
 # baseimage
 A base image for game servers
 
+# IMPORTANT INFO FOR FORKS
+This section contains information related to creating forked repos for specific games. This section should be
+removed after all the steps have been taken.
+
+## Dockerfile Changes
+1. Update the following environment variables:
+    - STEAM_APPID
+    - SERVER_PROCESS_NAME
+    - SERVER_PORT
+2. If using Wine, uncomment the section to install it
+3. If not using mcRcon, remove the section that installs it
+
+## Config-Tools.ps1 changes
+1. Update the `Copy-Configs` function to move the config file(s) to the proper location(s)
+
+## Start-UpdateService.ps1 changes
+1. If necessary, adjust the arguments in the `RunSteamCMD` function
+
+## Update-ConfigFiles.ps1 changes
+1. Update the config file updates as necessary
+
+
 # System Requirements
 | Name | Description |
 | - | - |
