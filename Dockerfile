@@ -16,7 +16,12 @@ RUN apt-get install --no-install-recommends --no-install-suggests -y \
     powershell lib32gcc-s1 curl ca-certificates locales supervisor zip
 
 # Install wine, if necessary
-# RUN apt-get install -y wine64 wine32 winetricks screen xvfb
+# WORKDIR /etc/apt/keyrings
+# RUN dpkg --add-architecture i386 
+# RUN wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+# RUN wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
+# RUN apt-get update
+# RUN apt-get install --install-recommends -y winehq-stable winetricks screen xvfb
 
 # Install SteamCMD
 WORKDIR /steam
@@ -41,7 +46,7 @@ RUN mkdir -p ./logs
 # Copy configs
 COPY ./configs/supervisord.conf /etc
 # If the workdir changes, also update it in Config-Tools
-WORKDIR /app/default-configs
+WORKDIR /app/configs
 COPY ./configs/game-configs/ .
 
 # Copy scripts

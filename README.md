@@ -14,7 +14,9 @@ removed after all the steps have been taken.
 3. If not using mcRcon, remove the section that installs it
 
 ## Config-Tools.ps1 changes
-1. Update the `Copy-Configs` function to move the config file(s) to the proper location(s)
+1. Update the $destinationConfigDirectory variable to point to the config destination, if applicable
+2. Update the $configFiles hash table to include the proper file names and paths
+3. Update the `Copy-Configs` function to move the config file(s) to the proper location(s)
 
 ## Start-UpdateService.ps1 changes
 1. If necessary, adjust the arguments in the `RunSteamCMD` function
@@ -37,6 +39,7 @@ removed after all the steps have been taken.
 | /app/server | Game server files |
 | /app/backups | Backup files |
 | /app/logs | Logs for the various processes |
+| /app/configs | Folder that contains the default configuration files. Custom configs can be placed here instead of defining settings changes in environment variables |
 
 # Environment Variables
 ## General
