@@ -10,7 +10,8 @@ function Copy-Configs
 {
   foreach ($file in $configFiles.GetEnumerator())
   {
-    Copy-Item (Join-Path $defaultConfigDirectory $file.Name) $file.Value
+    $sourceFile = (Join-Path $defaultConfigDirectory $file.Name)
+    Copy-Item $sourceFile $file.Value
   }
 }
 

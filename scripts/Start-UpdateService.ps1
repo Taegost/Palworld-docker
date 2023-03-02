@@ -11,8 +11,10 @@ function RunSteamCMD()
 {
   AddUpdateLock
   $args="+force_install_dir '$serverLocation' +login anonymous +app_update $steamAppId $steamcmdArgs +quit"
-  Write-Output "Arguments used for SteamCMD: $args"
-  /steam/steamcmd.sh $args
+  
+  # For some reason, if we don't run it this exact way, steamcmd just hangs forever after updating itself
+  $invocation = "-Command & {/steam/steamcmd.sh $args}"
+  Start-Process pwsh -ArgumentList $invocation -NoNewWindow -Wait -Passthru
   Write-Output "Done updating"
   RemoveUpdateLock
 }

@@ -18,7 +18,7 @@ function AddUpdateLock
 
 function RemoveUpdateLock
 {
-  Remove-Item $lockFilePath
+  if (Test-Path $lockFilePath) { Remove-Item $lockFilePath }
 }
 
 function InstalledVersion
