@@ -1,16 +1,22 @@
 Import-Module /scripts/Server-Tools/Server-Tools.psm1 -Force
+$serverLauncherPath=(Join-Path '/app/server' 'server.exe')
 
-While ($true)
+Start-Sleep 10 # Delay initial startup to give the updater time to start
+
+While (RunServer)
 {
-  If (-Not (UpdateRunning))
+  If (-Not (UpdateRunning)
   {
-    Write-Output "Update is not running"
+    if (Test-Path $serverLauncherPath)
+    {
+      $args=""
+      Copy-Configs
+      Configure-Server
+      & $serverLauncherPath $args
+    } # if (Test-Path $serverLauncherPath)
   }
   else
   {
-    Write-Output "Update is running"
-    Start-Sleep 30
-  }
-  # touch /app/server/$count
-  Start-Sleep 5
-}
+    Start-Sleep 5
+  } # If (-Not (UpdateRunning)
+} # While (RunServer)

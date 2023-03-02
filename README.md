@@ -24,6 +24,8 @@ removed after all the steps have been taken.
 ## Update-ConfigFiles.ps1 changes
 1. Update the config file updates as necessary
 
+## Start-Server.ps1 changes
+1. Update the $serverLauncherPath to the correct path and file name
 
 # System Requirements
 | Name | Description |

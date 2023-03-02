@@ -18,3 +18,8 @@ function KillServer
     $serverProcess | Stop-Process -Force
   }
 }
+
+function RunServer
+{
+  return $true
+}

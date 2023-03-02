@@ -32,6 +32,6 @@ while (RunUpdate)
     Write-Output "Installed version doesn't match latest version, running update"
     RunSteamCMD
   }
-  Write-Output "Update Interval: $updatesInterval"
+  RemoveUpdateLock
   Start-Sleep ($updatesInterval * 60)
 } # while (RunUpdate)

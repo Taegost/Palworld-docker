@@ -8,8 +8,18 @@ $configFiles=@{
 
 function Copy-Configs
 {
-  foreach ($file in $configFiles)
+  foreach ($file in $configFiles.GetEnumerator())
   {
     Copy-Item (Join-Path $defaultConfigDirectory $file.Name) $file.Value
   }
+}
+
+function Update-ConfigFile
+{
+  
+}
+
+function Configure-Server
+{
+  
 }
