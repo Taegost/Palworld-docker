@@ -25,7 +25,10 @@ removed after all the steps have been taken.
 1. Update the config file updates as necessary
 
 ## Start-Server.ps1 changes
-1. Update the $serverLauncherPath to the correct path and file name
+1. Update $serverLauncherPath to the correct path and file name
+
+## Start-BackupService.ps1 changes
+1. Update $saveLocation to point to the correct location of the save files
 
 # System Requirements
 | Name | Description |
