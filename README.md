@@ -53,6 +53,7 @@ removed after all the steps have been taken.
 | SERVER_NAME | Default Server Name | The name to be displayed in the server list |
 | SERVER_PASSWORD | DefaultPassword | The password to be used for the server |
 | SERVER_PORT | 1234 | The port to be used by the server |
+| QUERY_PORT | 27015 | The query port to be used by the server |
 | TZ | Etc/UTC | Time zone for the server. A full list can be [found here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 | FILE_UMASK | 022 | umask value to use for configs, backups, and server files. [This article](https://www.digitalocean.com/community/tutorials/linux-permissions-basics-and-how-to-use-umask-on-a-vps) has a good explanation on permissions and how the umask works
 | UPDATES_ENABLED | true | Whether to check for updates or not |

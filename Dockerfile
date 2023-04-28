@@ -60,7 +60,8 @@ WORKDIR /tmp
 # Set up server defaults
 ENV STEAM_APPID="00000" \ 
     SERVER_PROCESS_NAME="notepad" \ 
-    SERVER_PORT="1234" \ 
+    SERVER_PORT="1234" \
+    QUERY_PORT="27015" \
     SERVER_NAME="Default Server Name" \
     SERVER_PASSWORD="DefaultPassword" \
     TEMP_FOLDER="/tmp" \
