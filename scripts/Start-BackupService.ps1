@@ -1,7 +1,7 @@
 $backupLocation = '/app/backups'
 $saveLocation = '/app/server'
 $backupsEnabled=$env:BACKUPS_ENABLED
-$backupsInterval=$env:BACKUPS_INTERVAL
+[int]$backupsInterval=$env:BACKUPS_INTERVAL
 
 function RunBackups()
 {
@@ -15,5 +15,5 @@ While (RunBackups)
     $backupFile = Join-Path $backupLocation "backup-$((Get-Date).tostring("yyyyMMdd_HHmmss")).zip"
     zip -r $backupFile $saveLocation
   } # if (Test-Path $saveLocation)
-  Start-Sleep ($backupsInterval * 60)
+  Start-Sleep [int]($backupsInterval * 60)
 } # While (RunBackups)

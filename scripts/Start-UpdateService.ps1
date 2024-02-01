@@ -10,6 +10,7 @@ $updatesEnabled=$env:UPDATES_ENABLED
 function RunSteamCMD()
 {
   AddUpdateLock
+  # $args="+force_install_dir '$serverLocation' +login anonymous +@sSteamCmdForcePlatformType windows +app_update $steamAppId $steamcmdArgs +quit"
   $args="+force_install_dir '$serverLocation' +login anonymous +app_update $steamAppId $steamcmdArgs +quit"
   
   # For some reason, if we don't run it this exact way, steamcmd just hangs forever after updating itself

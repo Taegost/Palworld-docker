@@ -21,6 +21,11 @@ While (RunServer)
       }
       & $serverLauncherPath $args
     } # if (Test-Path $serverLauncherPath)
+        else
+    {
+      Write-Output "Unable to locate server executable: ${$serverLauncherPath}"
+      StopServer
+    }
   }
   else
   {
