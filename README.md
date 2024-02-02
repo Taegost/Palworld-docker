@@ -55,6 +55,7 @@ removed after all the steps have been taken.
 | ---------------- | ------- | ----------- |
 | SERVER_NAME | Default Server Name | The name to be displayed in the server list |
 | SERVER_PASSWORD | DefaultPassword | The password to be used for the server |
+| ADMIN_PASSWORD | DefaultAdminPassword | The password to be used for admin access to the server (CHANGE THIS FROM THE DEFAULT) |
 | SERVER_PORT | 1234 | The port to be used by the server |
 | QUERY_PORT | 27015 | The query port to be used by the server |
 | TZ | Etc/UTC | Time zone for the server. A full list can be [found here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)

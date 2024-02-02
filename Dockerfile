@@ -64,6 +64,7 @@ ENV STEAM_APPID="00000" \
     QUERY_PORT="27015" \
     SERVER_NAME="Default Server Name" \
     SERVER_PASSWORD="DefaultPassword" \
+    ADMIN_PASSWORD="DefaultAdminPassword" \
     TEMP_FOLDER="/tmp" \
     TZ="Etc/UTC" \
     FILE_UMASK="022" \
