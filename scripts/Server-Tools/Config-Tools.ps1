@@ -20,8 +20,3 @@ function Update-ConfigFile
 {
   
 }
-
-function Configure-Server
-{
-  
-}

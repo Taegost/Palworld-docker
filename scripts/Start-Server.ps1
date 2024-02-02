@@ -4,13 +4,18 @@ $serverLauncherPath=(Join-Path '/app/server' 'server.exe')
 Start-Sleep 10 # Delay initial startup to give the updater time to start
 $copyConfigs = $true
 
+Write-Output "--------------------------------------------"
+Write-Output "Starting server"
+Write-Output "${Get-Date}"
+Write-Output "--------------------------------------------"
+
 While (RunServer)
 {
   If (-Not (UpdateRunning))
   {
     if (Test-Path $serverLauncherPath)
     {
-      $args=""
+      $serverArgs=""
       
       # We only want to copy the configs the first time the container starts
       if ($copyConfigs)
@@ -19,7 +24,15 @@ While (RunServer)
         Configure-Server
         $copyConfigs = $false
       }
-      & $serverLauncherPath $args
+
+      Write-Output "--------------------------------------------"
+      Write-Output "Starting server with the following arguments:"
+      Write-Output "Server Name: $env:SERVER_NAME"
+      Write-Output "Port: $env:SERVER_PORT"
+      Write-Output "Query Port: $env:QUERY_PORT"
+      Write-Output "Additional Arguments (if any): $serverArgs"
+
+      & $serverLauncherPath $serverArgs
     } # if (Test-Path $serverLauncherPath)
         else
     {

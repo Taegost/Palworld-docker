@@ -1,0 +1,22 @@
+services:
+  baseimage:
+    container_name: baseimage
+    image: diceninjagaming/baseimage-docker:latest
+    restart: "unless-stopped"
+    network_mode: bridge
+    ports:
+      - 17777:17777/udp
+      - 27000:27040/udp
+    volumes:
+      - /docker_volumes/baseimage_logs:/app/logs
+      - /docker_volumes/baseimage_saves:/app/saves
+      - /docker_volumes/baseimage_server:/app/server
+    environment:
+      - SERVER_NAME=DNG Testing
+      - SERVER_PASSWORD=DefaultPassword
+      - ADMIN_PASSWORD=SecretAdminPassword
+      - SERVER_PORT=17777
+      - QUERY_PORT=27015
+      - TZ=America/New_York
+      - USER_ID=1
+      - GROUP_ID=1

@@ -15,5 +15,5 @@ While (RunBackups)
     $backupFile = Join-Path $backupLocation "backup-$((Get-Date).tostring("yyyyMMdd_HHmmss")).zip"
     zip -r $backupFile $saveLocation
   } # if (Test-Path $saveLocation)
-  Start-Sleep [int]($backupsInterval * 60)
+  Start-Sleep ($backupsInterval * 60)
 } # While (RunBackups)

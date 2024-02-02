@@ -10,6 +10,12 @@ $updatesEnabled=$env:UPDATES_ENABLED
 function RunSteamCMD()
 {
   AddUpdateLock
+
+  if (-Not (Test-Path $serverLocation))
+  {
+    Write-Output "Server folder doesn't exist, creating it now"
+    New-Item $serverLocation -ItemType Directory
+  }
   # $args="+force_install_dir '$serverLocation' +login anonymous +@sSteamCmdForcePlatformType windows +app_update $steamAppId $steamcmdArgs +quit"
   $args="+force_install_dir '$serverLocation' +login anonymous +app_update $steamAppId $steamcmdArgs +quit"
   
