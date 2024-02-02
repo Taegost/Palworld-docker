@@ -5,6 +5,9 @@ A base image for game servers
 This section contains information related to creating forked repos for specific games. This section should be
 removed after all the steps have been taken.
 
+## GitHub Action changes
+1. Update the .github/workflows/docker-publish.yml to use the correct image name
+
 ## Dockerfile Changes
 1. Update the following environment variables:
     - STEAM_APPID
