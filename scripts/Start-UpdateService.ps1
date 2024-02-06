@@ -16,11 +16,11 @@ function RunSteamCMD()
     Write-Output "Server folder doesn't exist, creating it now"
     New-Item $serverLocation -ItemType Directory
   }
-  # $args="+force_install_dir '$serverLocation' +login anonymous +@sSteamCmdForcePlatformType windows +app_update $steamAppId $steamcmdArgs +quit"
-  $args="+force_install_dir '$serverLocation' +login anonymous +app_update $steamAppId $steamcmdArgs +quit"
+  # $steamArgs="+force_install_dir '$serverLocation' +login anonymous +@sSteamCmdForcePlatformType windows +app_update $steamAppId $steamcmdArgs +quit"
+  $steamArgs="+force_install_dir '$serverLocation' +login anonymous +app_update $steamAppId $steamcmdArgs +quit"
   
   # For some reason, if we don't run it this exact way, steamcmd just hangs forever after updating itself
-  $invocation = "-Command & {/steam/steamcmd.sh $args}"
+  $invocation = "-Command & {/steam/steamcmd.sh $steamArgs}"
   Start-Process pwsh -ArgumentList $invocation -NoNewWindow -Wait -Passthru
   Write-Output "Done updating"
   RemoveUpdateLock

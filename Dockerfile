@@ -44,12 +44,15 @@ WORKDIR /app
 RUN mkdir -p ./backups
 RUN mkdir -p ./server
 RUN mkdir -p ./logs
+RUN mkdir -p ./saves
 
 # Copy configs
 COPY ./configs/supervisord.conf /etc
 # If the workdir changes, also update it in Config-Tools
 WORKDIR /app/configs
-COPY ./configs/game-configs/ .
+
+# Use this for default config files
+# COPY ./configs/game-configs/ .
 
 # Copy scripts
 WORKDIR /scripts
