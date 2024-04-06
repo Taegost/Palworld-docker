@@ -15,16 +15,6 @@ RUN apt-get update
 RUN apt-get install --no-install-recommends --no-install-suggests -y \
     powershell lib32gcc-s1 curl ca-certificates locales supervisor zip
 
-# Install wine, if necessary
-# WORKDIR /etc/apt/keyrings
-# RUN dpkg --add-architecture i386 
-# RUN wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
-# RUN wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
-# RUN apt-get update
-# RUN apt-get install --install-recommends -y winehq-stable winetricks screen xvfb
-# ENV WINEPREFIX="/tmp/.wine" \
-#     WINEARCH=win64
-
 # Install SteamCMD
 WORKDIR /steam
 RUN wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
@@ -61,9 +51,9 @@ COPY ./scripts/ .
 WORKDIR /tmp
 
 # Set up server defaults
-ENV STEAM_APPID="00000" \ 
+ENV STEAM_APPID="2394010" \ 
     SERVER_PROCESS_NAME="notepad" \ 
-    SERVER_PORT="1234" \
+    SERVER_PORT="8211" \
     QUERY_PORT="27015" \
     SERVER_NAME="Default Server Name" \
     SERVER_PASSWORD="DefaultPassword" \
